@@ -1806,8 +1806,8 @@
                             {
                               "resetFormOnClick": false,
                               "boxShadow": "none",
-                              "widgetName": "Button1",
-                              "onClick": "{{products.deleteProduct()}}",
+                              "widgetName": "ProductDeleteButton",
+                              "onClick": "{{(() => {\n\tproducts.deleteProduct();\n\tproducts.getProducts();\n})()}}",
                               "buttonColor": "#dc2626",
                               "dynamicPropertyPathList": [
                                 {
