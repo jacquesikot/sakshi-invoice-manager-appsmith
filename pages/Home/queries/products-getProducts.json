@@ -19,7 +19,7 @@
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
-      "body": "async () => {\n  const isTestData = false;\n  if (isTestData) {\n    return products.testData;\n  } else {\n    const productsData = await getProducts.run();\n    const mappingConfig = {\n      id: 'id',\n      name: 'name',\n      image: 'image',\n      price: 'price',\n      description: 'description'\n    };\n    return products.productDataMapping(productsData, mappingConfig);\n  }\n}",
+      "body": "async () => {\n  const isTestData = false;\n  if (isTestData) {\n    return products.testData;\n  } else {\n    const productsData = await getProductsApi.data;\n    const mappingConfig = {\n      id: 'id',\n      name: 'name',\n      image: 'product_image',\n      price: 'sale_price',\n      description: 'description'\n    };\n    return products.productDataMapping(productsData, mappingConfig);\n  }\n}",
       "selfReferencingDataPaths": [],
       "jsArguments": [],
       "isAsync": true
@@ -35,7 +35,7 @@
     "invalids": [],
     "messages": [],
     "jsonPathKeys": [
-      "async () => {\n  const isTestData = false;\n  if (isTestData) {\n    return products.testData;\n  } else {\n    const productsData = await getProducts.run();\n    const mappingConfig = {\n      id: 'id',\n      name: 'name',\n      image: 'image',\n      price: 'price',\n      description: 'description'\n    };\n    return products.productDataMapping(productsData, mappingConfig);\n  }\n}"
+      "async () => {\n  const isTestData = false;\n  if (isTestData) {\n    return products.testData;\n  } else {\n    const productsData = await getProductsApi.data;\n    const mappingConfig = {\n      id: 'id',\n      name: 'name',\n      image: 'product_image',\n      price: 'sale_price',\n      description: 'description'\n    };\n    return products.productDataMapping(productsData, mappingConfig);\n  }\n}"
     ],
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,

@@ -19,9 +19,12 @@
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
-      "body": "(data, mappingConfig) => {\n  return data.map(item => {\n    const mappedItem = {};\n    for (const [key, value] of Object.entries(mappingConfig)) {\n      if (item[value]) {\n        mappedItem[key] = item[value];\n      }\n    }\n    return mappedItem;\n  });\n}",
+      "body": "(data, mappingConfig) => {\n  return data.map(item => {\n    const mappedItem = {};\n    for (const [key, value] of Object.entries(mappingConfig)) {\n      if (item[value]) {\n        mappedItem[key] = item[value];\n      } else {\n        mappedItem[key] = null;\n      }\n    }\n    return mappedItem;\n  });\n}",
       "selfReferencingDataPaths": [],
-      "jsArguments": [],
+      "jsArguments": [
+        {},
+        {}
+      ],
       "isAsync": false
     },
     "executeOnLoad": false,
@@ -34,7 +37,7 @@
     "invalids": [],
     "messages": [],
     "jsonPathKeys": [
-      "(data, mappingConfig) => {\n  return data.map(item => {\n    const mappedItem = {};\n    for (const [key, value] of Object.entries(mappingConfig)) {\n      if (item[value]) {\n        mappedItem[key] = item[value];\n      }\n    }\n    return mappedItem;\n  });\n}"
+      "(data, mappingConfig) => {\n  return data.map(item => {\n    const mappedItem = {};\n    for (const [key, value] of Object.entries(mappingConfig)) {\n      if (item[value]) {\n        mappedItem[key] = item[value];\n      } else {\n        mappedItem[key] = null;\n      }\n    }\n    return mappedItem;\n  });\n}"
     ],
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,

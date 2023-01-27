@@ -1040,6 +1040,11 @@
                       "widgetName": "ProductList",
                       "listData": "{{products.getProducts.data}}",
                       "isCanvas": true,
+                      "dynamicPropertyPathList": [
+                        {
+                          "key": "onListItemClick"
+                        }
+                      ],
                       "displayName": "List",
                       "iconSVG": "/static/media/icon.9925ee17dee37bf1ba7374412563a8a7.svg",
                       "topRow": 6,
@@ -1050,7 +1055,11 @@
                       "gridGap": 0,
                       "animateLoading": true,
                       "parentColumnSpace": 11.9375,
-                      "dynamicTriggerPathList": [],
+                      "dynamicTriggerPathList": [
+                        {
+                          "key": "onListItemClick"
+                        }
+                      ],
                       "leftColumn": 1,
                       "dynamicBindingPathList": [
                         {
@@ -1463,7 +1472,8 @@
                       "backgroundColor": "transparent",
                       "isDeprecated": false,
                       "rightColumn": 25,
-                      "itemBackgroundColor": "#FFFFFF",
+                      "onListItemClick": "{{storeValue('activeProduct',ProductList.selectedItem.id)}}",
+                      "itemBackgroundColor": "#FEFEFE",
                       "widgetId": "t90lpwqxs0",
                       "accentColor": "{{appsmith.theme.colors.primaryColor}}",
                       "isVisible": true,
@@ -1727,12 +1737,12 @@
                                   "key": "borderRadius"
                                 },
                                 {
-                                  "key": "defaultImage"
+                                  "key": "image"
                                 }
                               ],
-                              "defaultImage": "{{ProductList.selectedItem.image.length > 0 ? ProductList.selectedItem.image : 'https://assets.appsmith.com/widgets/default.png'}}",
+                              "defaultImage": "https://assets.appsmith.com/widgets/default.png",
                               "key": "cjgrmi38tu",
-                              "image": "",
+                              "image": "{{ProductList.selectedItem.image}}",
                               "isDeprecated": false,
                               "rightColumn": 28,
                               "objectFit": "cover",
@@ -2058,6 +2068,16 @@
         "layoutOnLoadActions": [
           [
             {
+              "id": "Home_getProductsApi",
+              "name": "getProductsApi",
+              "confirmBeforeExecute": false,
+              "pluginType": "API",
+              "jsonPathKeys": [],
+              "timeoutInMillisecond": 10000
+            }
+          ],
+          [
+            {
               "id": "Home_products.getProducts",
               "name": "products.getProducts",
               "collectionId": "Home_products",
@@ -2065,7 +2085,7 @@
               "confirmBeforeExecute": false,
               "pluginType": "JS",
               "jsonPathKeys": [
-                "async () => {\n  const isTestData = false;\n  if (isTestData) {\n    return products.testData;\n  } else {\n    const productsData = await getProducts.run();\n    const mappingConfig = {\n      id: 'id',\n      name: 'name',\n      image: 'image',\n      price: 'price',\n      description: 'description'\n    };\n    return products.productDataMapping(productsData, mappingConfig);\n  }\n}"
+                "async () => {\n  const isTestData = false;\n  if (isTestData) {\n    return products.testData;\n  } else {\n    const productsData = await getProductsApi.data;\n    const mappingConfig = {\n      id: 'id',\n      name: 'name',\n      image: 'product_image',\n      price: 'sale_price',\n      description: 'description'\n    };\n    return products.productDataMapping(productsData, mappingConfig);\n  }\n}"
               ],
               "timeoutInMillisecond": 10000
             }
