@@ -1809,6 +1809,11 @@
                               "widgetName": "Button1",
                               "onClick": "{{products.deleteProduct()}}",
                               "buttonColor": "#dc2626",
+                              "dynamicPropertyPathList": [
+                                {
+                                  "key": "onClick"
+                                }
+                              ],
                               "displayName": "Button",
                               "iconSVG": "/static/media/icon.cca026338f1c8eb6df8ba03d084c2fca.svg",
                               "searchTags": [
