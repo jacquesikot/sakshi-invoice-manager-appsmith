@@ -1,0 +1,20 @@
+{
+  "unpublishedCollection": {
+    "name": "products",
+    "pageId": "Home",
+    "pluginId": "js-plugin",
+    "pluginType": "JS",
+    "actions": [],
+    "archivedActions": [],
+    "variables": [
+      {
+        "name": "testData",
+        "value": "[{\n  id: '1',\n  name: 'Product 1',\n  image: '',\n  price: 1200,\n  description: 'descript'\n}, {\n  id: '2',\n  name: 'Product 2',\n  image: '',\n  price: 1500,\n  description: 'descript'\n}, {\n  id: '3',\n  name: 'Product 3',\n  image: '',\n  price: 1000,\n  description: 'descript'\n}, {\n  id: '4',\n  name: 'Product 4',\n  image: '',\n  price: 800,\n  description: 'descript 5'\n}]"
+      }
+    ],
+    "userPermissions": []
+  },
+  "id": "Home_products",
+  "deleted": false,
+  "gitSyncId": "63d2f77d46a81077d7c060af_63d2fc6946a81077d7c060b9"
+}
