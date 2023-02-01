@@ -19,10 +19,10 @@
       "timeoutInMillisecond": 10000,
       "paginationType": "NONE",
       "encodeParamsToggle": true,
-      "body": "() => {}",
+      "body": "async () => {\n  const file = ProductImagePicker.files[0];\n  const url = await s3.uploadToS3(file);\n  console.log('URL:', url);\n}",
       "selfReferencingDataPaths": [],
       "jsArguments": [],
-      "isAsync": false
+      "isAsync": true
     },
     "executeOnLoad": false,
     "dynamicBindingPathList": [
@@ -34,7 +34,7 @@
     "invalids": [],
     "messages": [],
     "jsonPathKeys": [
-      "() => {}"
+      "async () => {\n  const file = ProductImagePicker.files[0];\n  const url = await s3.uploadToS3(file);\n  console.log('URL:', url);\n}"
     ],
     "userSetOnLoad": false,
     "confirmBeforeExecute": false,

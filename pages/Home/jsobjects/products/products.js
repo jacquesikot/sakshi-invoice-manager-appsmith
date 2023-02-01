@@ -51,14 +51,14 @@ export default {
 			return products.testData;
 		} else {
 			// Add your Query here
-			const productsData = await getProductsApi.data 
+			const productsData = await getProducts.run()
 			
 			//Please ensure that you have added your data mapping on the right side of the object in the mappingConfig variable. The keys 			in the mappingConfig object correspond to the variables in the template, and the values should be the keys in your data 					result that correspond to those template variables. Without the proper data mapping, the template will not be able to 						correctly display the values from your data
 		const mappingConfig = {
       id: 'id',
       name: 'name',
-      image: 'product_image',
-      price: 'sale_price',
+      image: 'image',
+      price: 'price',
       description: 'description',
     };
 			
@@ -66,7 +66,13 @@ export default {
 			return products.productDataMapping(productsData, mappingConfig);
 		}
 	},
-	updateProductImage: () => {},
+	updateProductImage: async () => {
+		const file = ProductImagePicker.files[0];
+		
+		const url = await s3.uploadToS3(file);
+		
+		console.log('URL:', url)
+	},
 	updateProductData: async () => {
 		await updateProductApi.data
 	},

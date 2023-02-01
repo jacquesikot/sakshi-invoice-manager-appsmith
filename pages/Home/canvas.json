@@ -294,7 +294,7 @@
                         },
                         "Text7": {
                           "isVisible": true,
-                          "text": "{{List1.listData.map((currentItem, currentIndex) => {\n              return (function(){\n                return  ProductPriceInput.c currentItem.price;\n              })();\n            })}}",
+                          "text": "{{List1.listData.map((currentItem, currentIndex) => {\n              return (function(){\n                return  ProductPriceInput.currencyCode + ' ' + currentItem.price;\n              })();\n            })}}",
                           "fontSize": "1rem",
                           "fontStyle": "BOLD",
                           "textAlign": "LEFT",
@@ -441,13 +441,22 @@
                               "children": [
                                 {
                                   "widgetName": "Canvas13",
+                                  "isDeprecated": false,
+                                  "detachFromLayout": true,
                                   "displayName": "Canvas",
+                                  "widgetId": "unq5nwqkl3",
                                   "topRow": 0,
                                   "bottomRow": 110,
+                                  "containerStyle": "none",
                                   "parentRowSpace": 1,
+                                  "isVisible": true,
                                   "type": "CANVAS_WIDGET",
                                   "canExtend": false,
+                                  "version": 1,
                                   "hideCard": true,
+                                  "parentId": "6a6mwbx590",
+                                  "renderMode": "CANVAS",
+                                  "isLoading": false,
                                   "parentColumnSpace": 1,
                                   "leftColumn": 0,
                                   "dynamicBindingPathList": [],
@@ -660,7 +669,7 @@
                                       "leftColumn": 17,
                                       "shouldTruncate": false,
                                       "truncateButtonColor": "{{appsmith.theme.colors.primaryColor}}",
-                                      "text": "{{ProductPriceInput.c currentItem.price}}",
+                                      "text": "{{ProductPriceInput.currencyCode + ' ' + currentItem.price}}",
                                       "key": "3a9gkuu6ty",
                                       "isDeprecated": false,
                                       "rightColumn": 25,
@@ -724,16 +733,7 @@
                                       "minDynamicHeight": 4
                                     }
                                   ],
-                                  "key": "b995tcel9e",
-                                  "isDeprecated": false,
-                                  "detachFromLayout": true,
-                                  "widgetId": "unq5nwqkl3",
-                                  "containerStyle": "none",
-                                  "isVisible": true,
-                                  "version": 1,
-                                  "parentId": "6a6mwbx590",
-                                  "renderMode": "CANVAS",
-                                  "isLoading": false
+                                  "key": "b995tcel9e"
                                 }
                               ],
                               "borderWidth": "1",
@@ -1455,7 +1455,7 @@
                           "widgetName": "Canvas11",
                           "displayName": "Canvas",
                           "topRow": 0,
-                          "bottomRow": 350,
+                          "bottomRow": 360,
                           "parentRowSpace": 1,
                           "type": "CANVAS_WIDGET",
                           "canExtend": false,
@@ -1794,63 +1794,6 @@
                               "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
                               "buttonVariant": "PRIMARY",
                               "placement": "CENTER"
-                            },
-                            {
-                              "boxShadow": "none",
-                              "widgetName": "ProductImagePicker",
-                              "buttonColor": "{{appsmith.theme.colors.primaryColor}}",
-                              "displayName": "FilePicker",
-                              "iconSVG": "/static/media/icon.7c5ad9c357928c6ff5701bf51a56c2e5.svg",
-                              "searchTags": [
-                                "upload"
-                              ],
-                              "topRow": 25,
-                              "bottomRow": 29,
-                              "parentRowSpace": 10,
-                              "allowedFileTypes": [
-                                "image/*",
-                                ".png",
-                                "image/jpeg"
-                              ],
-                              "type": "FILE_PICKER_WIDGET_V2",
-                              "hideCard": false,
-                              "animateLoading": true,
-                              "parentColumnSpace": 9.87066650390625,
-                              "dynamicTriggerPathList": [
-                                {
-                                  "key": "onFilesSelected"
-                                }
-                              ],
-                              "leftColumn": 1,
-                              "dynamicBindingPathList": [
-                                {
-                                  "key": "buttonColor"
-                                },
-                                {
-                                  "key": "borderRadius"
-                                }
-                              ],
-                              "isDisabled": false,
-                              "key": "0ccdr2n4si",
-                              "onFilesSelected": "{{products.updateProductImage()}}",
-                              "isRequired": false,
-                              "isDeprecated": false,
-                              "rightColumn": 17,
-                              "isDefaultClickDisabled": true,
-                              "widgetId": "2nihta7w4w",
-                              "isVisible": true,
-                              "label": "Upload Image",
-                              "maxFileSize": 5,
-                              "dynamicTyping": true,
-                              "version": 1,
-                              "fileDataType": "Base64",
-                              "parentId": "fdqvxyx4qx",
-                              "selectedFiles": [],
-                              "renderMode": "CANVAS",
-                              "isLoading": false,
-                              "borderRadius": "{{appsmith.theme.borderRadius.appBorderRadius}}",
-                              "files": [],
-                              "maxNumFiles": "1"
                             }
                           ],
                           "key": "lf8c01g5t7",
@@ -1983,16 +1926,6 @@
         "layoutOnLoadActions": [
           [
             {
-              "id": "Home_getProductsApi",
-              "name": "getProductsApi",
-              "confirmBeforeExecute": false,
-              "pluginType": "API",
-              "jsonPathKeys": [],
-              "timeoutInMillisecond": 10000
-            }
-          ],
-          [
-            {
               "id": "Home_products.getProducts",
               "name": "products.getProducts",
               "collectionId": "Home_products",
@@ -2000,7 +1933,7 @@
               "confirmBeforeExecute": false,
               "pluginType": "JS",
               "jsonPathKeys": [
-                "async () => {\n  const isTestData = false;\n  if (isTestData) {\n    return products.testData;\n  } else {\n    const productsData = await getProductsApi.data;\n    const mappingConfig = {\n      id: 'id',\n      name: 'name',\n      image: 'product_image',\n      price: 'sale_price',\n      description: 'description'\n    };\n    return products.productDataMapping(productsData, mappingConfig);\n  }\n}"
+                "async () => {\n  const isTestData = false;\n  if (isTestData) {\n    return products.testData;\n  } else {\n    const productsData = await getProducts.run();\n    const mappingConfig = {\n      id: 'id',\n      name: 'name',\n      image: 'image',\n      price: 'price',\n      description: 'description'\n    };\n    return products.productDataMapping(productsData, mappingConfig);\n  }\n}"
               ],
               "timeoutInMillisecond": 10000
             }
