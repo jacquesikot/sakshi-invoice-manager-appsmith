@@ -1,8 +1,7 @@
 export default {
 saveToS3: async (file) => {
 	const bucket = 'ricive-mobile-app-storage';
-	const accessKeyId = 'AKIAT5IKIAOFM3NTTKVF';
-	const secretAccessKey = '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';
+
 	const region = 'us-east-1';
   const endpoint = `https://${bucket}.s3.${region}.amazonaws.com`;
   const key = file.name;
